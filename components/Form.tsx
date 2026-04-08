@@ -93,7 +93,11 @@ const resumo: Array<{ key: keyof FormValues; label: string }> = [
   { key: 'finalidadeLocacao', label: 'Finalidade da locação' },
 ];
 
-export default function Form() {
+interface FormProps {
+  tipo?: 'residencial' | 'comercial' | 'temporada' | 'geral';
+}
+
+export default function Form({ tipo = 'geral' }: FormProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [canvasWidth, setCanvasWidth] = useState(500);
   const signatureRef = useRef<SignatureCanvas>(null);
@@ -283,7 +287,7 @@ export default function Form() {
       doc.text('Sem assinatura', margin, y + 15);
     }
 
-    const filename = `ficha-cadastral-${values.nome ? values.nome.replace(/\s+/g, '-') : 'cliente'}.pdf`;
+    const filename = `ficha-cadastral-${tipo}-${values.nome ? values.nome.replace(/\s+/g, '-') : 'cliente'}.pdf`;
     doc.save(filename);
   }
 

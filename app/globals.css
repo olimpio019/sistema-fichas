@@ -132,6 +132,66 @@ button:active {
   overflow-x: auto;
 }
 
+/* Estilos para seleção de modelos */
+.model-selection {
+  display: grid;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.model-card {
+  display: block;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.model-card:hover {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.model-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.model-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.model-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Estilos para breadcrumb */
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 900px) {
   .form-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -191,6 +251,30 @@ button:active {
     font-size: 1.1rem;
     max-width: 100%;
   }
+
+  /* Responsividade para cards de modelo */
+  .model-selection {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .model-card {
+    padding: 20px;
+  }
+
+  .model-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .model-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .model-card p {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -224,5 +308,13 @@ button:active {
 
   button {
     padding: 20px 32px;
+  }
+
+  .model-card {
+    padding: 16px;
+  }
+
+  .model-icon {
+    font-size: 2rem;
   }
 }
