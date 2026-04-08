@@ -177,7 +177,7 @@ button:active {
 }
 
 .home-page {
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 
 .home-header {
@@ -198,7 +198,7 @@ button:active {
   color: #1f2937;
 }
 
-.home-header-logo,
+.home-logo,
 .hero-logo {
   max-height: 40px;
   width: auto;
@@ -207,7 +207,7 @@ button:active {
 .home-nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 26px;
 }
 
 .home-nav a {
@@ -222,32 +222,74 @@ button:active {
 }
 
 .home-hero {
+  width: min(1200px, 100%);
+  margin: 0 auto 36px;
+  display: flex;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 32px;
 }
 
-.hero-copy {
+.hero-content {
   max-width: 760px;
-  margin: 0 auto;
+  padding: 48px 32px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
 }
 
-.hero-copy h1 {
-  margin: 18px auto 8px;
-  font-size: clamp(2.5rem, 3.5vw, 3.8rem);
-  letter-spacing: -0.03em;
+.hero-badge {
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e3a8a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
 }
 
-.hero-copy p {
-  margin: 0 auto;
+.hero-content h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.hero-content p {
+  margin: 0;
   color: #475569;
   font-size: 1.05rem;
-  max-width: 720px;
+  line-height: 1.8;
 }
 
-.cards-grid {
+.home-cards {
+  width: min(1200px, 100%);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 26px 24px;
+  text-decoration: none;
+  color: #0f172a;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
 }
 
 .service-card {
@@ -275,29 +317,29 @@ button:active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
   background: #eff6ff;
   color: #1e40af;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 22px;
 }
 
-.service-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.15rem;
+.home-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
-.service-card p {
-  margin: 0 0 18px;
+.home-card p {
+  margin: 0 0 20px;
   color: #64748b;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  line-height: 1.65;
+  font-size: 0.96rem;
 }
 
-.service-card span {
+.home-card span {
   display: inline-flex;
   align-items: center;
   color: #2563eb;
@@ -334,50 +376,46 @@ button:active {
 }
 
 /* Media queries para mobile */
+@media (max-width: 1024px) {
+  .home-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .page-container {
     padding: 12px 6px;
   }
 
-  .card,
-  .home-header {
-    border-radius: 12px;
-  }
-
-  .card {
-    padding: 16px;
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
-  }
-
   .home-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: 14px;
+    margin-bottom: 16px;
   }
 
   .home-nav {
-    gap: 18px;
+    gap: 16px;
   }
 
   .home-page {
-    padding-bottom: 24px;
+    padding-bottom: 32px;
   }
 
-  .hero-copy h1 {
-    font-size: 2.2rem;
+  .hero-content h1 {
+    font-size: 2.4rem;
   }
 
-  .hero-copy p {
+  .hero-content p {
     font-size: 1rem;
   }
 
-  .cards-grid {
+  .home-cards {
     grid-template-columns: 1fr;
     gap: 18px;
   }
 
-  .service-card {
+  .home-card {
     padding: 22px;
   }
 
@@ -399,20 +437,20 @@ button:active {
     justify-content: space-between;
   }
 
-  .hero-copy h1 {
-    font-size: 1.9rem;
+  .hero-content h1 {
+    font-size: 2rem;
   }
 
-  .hero-copy p {
+  .hero-content p {
     font-size: 0.95rem;
   }
 
-  .home-header-logo,
+  .home-logo,
   .hero-logo {
     max-height: 32px;
   }
 
-  .service-card {
+  .home-card {
     padding: 18px;
   }
 }
