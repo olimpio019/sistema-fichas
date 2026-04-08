@@ -176,6 +176,135 @@ button:active {
   font-size: 0.9rem;
 }
 
+.home-page {
+  padding-bottom: 40px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(1200px, 100%);
+  margin: 0 auto 24px;
+  padding: 16px 0;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.home-header-logo,
+.hero-logo {
+  max-height: 40px;
+  width: auto;
+}
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.home-nav a {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.home-nav a:hover {
+  color: #2563eb;
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-copy h1 {
+  margin: 18px auto 8px;
+  font-size: clamp(2.5rem, 3.5vw, 3.8rem);
+  letter-spacing: -0.03em;
+}
+
+.hero-copy p {
+  margin: 0 auto;
+  color: #475569;
+  font-size: 1.05rem;
+  max-width: 720px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: #0f172a;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #eff6ff;
+  color: #1e40af;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.service-card p {
+  margin: 0 0 18px;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.service-card span {
+  display: inline-flex;
+  align-items: center;
+  color: #2563eb;
+  font-weight: 700;
+  gap: 8px;
+}
+
 /* Estilos para breadcrumb */
 .breadcrumb {
   margin-bottom: 20px;
@@ -210,111 +339,81 @@ button:active {
     padding: 12px 6px;
   }
 
-  .card {
+  .card,
+  .home-header {
     border-radius: 12px;
+  }
+
+  .card {
     padding: 16px;
     box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
   }
 
-  h1 {
-    font-size: 1.75rem;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    margin: 24px 0 16px 0;
-  }
-
-  p {
-    font-size: 0.9rem;
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
     margin-bottom: 20px;
   }
 
-  form {
-    gap: 16px;
+  .home-nav {
+    gap: 18px;
   }
 
-  .form-row {
-    gap: 12px;
+  .home-page {
+    padding-bottom: 24px;
   }
 
-  input,
-  select,
-  textarea {
-    padding: 14px 16px;
-    font-size: 16px; /* Previne zoom no iOS */
+  .hero-copy h1 {
+    font-size: 2.2rem;
   }
 
-  button {
-    padding: 18px 28px;
-    font-size: 1.1rem;
-    max-width: 100%;
+  .hero-copy p {
+    font-size: 1rem;
   }
 
-  /* Responsividade para cards de modelo */
-  .model-selection {
+  .cards-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 24px;
+    gap: 18px;
   }
 
-  .model-card {
-    padding: 20px;
+  .service-card {
+    padding: 22px;
   }
 
-  .model-icon {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-  }
-
-  .model-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .model-card p {
-    font-size: 0.85rem;
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .card {
-    padding: 12px;
+  .home-header {
+    width: 100%;
+    padding: 0;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .home-nav {
+    width: 100%;
+    justify-content: space-between;
   }
 
-  h2 {
-    font-size: 1.1rem;
-    margin: 20px 0 12px 0;
+  .hero-copy h1 {
+    font-size: 1.9rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .hero-copy p {
+    font-size: 0.95rem;
   }
 
-  .form-row-3 {
-    grid-template-columns: 1fr;
+  .home-header-logo,
+  .hero-logo {
+    max-height: 32px;
   }
 
-  input,
-  select,
-  textarea {
-    padding: 16px;
-  }
-
-  button {
-    padding: 20px 32px;
-  }
-
-  .model-card {
-    padding: 16px;
-  }
-
-  .model-icon {
-    font-size: 2rem;
+  .service-card {
+    padding: 18px;
   }
 }
+
