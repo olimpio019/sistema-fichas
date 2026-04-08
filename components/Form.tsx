@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 import SignatureCanvas from 'react-signature-canvas';
 import { logoBase64 } from '../lib/logoBase64';
@@ -95,7 +95,19 @@ const resumo: Array<{ key: keyof FormValues; label: string }> = [
 
 export default function Form() {
   const [values, setValues] = useState<FormValues>(initialValues);
+  const [canvasWidth, setCanvasWidth] = useState(500);
   const signatureRef = useRef<SignatureCanvas>(null);
+
+  useEffect(() => {
+    function updateCanvasWidth() {
+      const maxWidth = Math.min(500, window.innerWidth - 40);
+      setCanvasWidth(maxWidth);
+    }
+
+    updateCanvasWidth();
+    window.addEventListener('resize', updateCanvasWidth);
+    return () => window.removeEventListener('resize', updateCanvasWidth);
+  }, []);
 
   function updateField(key: keyof FormValues, value: string) {
     setValues((current) => ({ ...current, [key]: value }));
@@ -398,24 +410,20 @@ export default function Form() {
       <h2>Assinatura</h2>
       <div className="field-group">
         <label>Assine abaixo</label>
-        <SignatureCanvas 
-          ref={signatureRef}
-          canvasProps={{
-            className: 'signature-canvas',
-            width: 500,
-            height: 150,
-            style: {
-              border: '1px solid #cbd5e1',
-              borderRadius: '12px',
-              backgroundColor: '#f8fafc',
-              cursor: 'crosshair',
-            },
-          }}
-        />
+        <div className="signature-container">
+          <SignatureCanvas 
+            ref={signatureRef}
+            canvasProps={{
+              className: 'signature-canvas',
+              width: canvasWidth,
+              height: 150,
+            }}
+          />
+        </div>
         <button 
           type="button" 
           onClick={() => signatureRef.current?.clear()}
-          style={{ marginTop: '8px', width: 'auto', padding: '8px 16px' }}
+          style={{ marginTop: '12px', width: 'auto', padding: '10px 20px', fontSize: '0.9rem' }}
         >
           Limpar assinatura
         </button>
