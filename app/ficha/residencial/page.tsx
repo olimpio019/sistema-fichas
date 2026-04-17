@@ -7,8 +7,8 @@ export default function FichaResidencial() {
         <div className="breadcrumb">
           <a href="/">← Voltar ao início</a>
         </div>
-        <h1>Ficha Cadastral Residencial</h1>
-        <p>Preencha os dados abaixo para locação de imóvel residencial e gere o PDF da ficha.</p>
+        <h1>Ficha Cadastral Fiador PF</h1>
+        <p>Preencha os dados abaixo para gerar a ficha cadastral do fiador pessoa física.</p>
         <Form tipo="residencial" />
       </div>
     </main>
